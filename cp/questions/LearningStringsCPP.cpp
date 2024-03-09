@@ -30,10 +30,10 @@ std::string toString(const S &val) // toString any object in C++
     oss << val;
     return oss.str();
 }
-asd
-    // !@TOADD -- add to my templates mechanism.
-    template <typename T>
-    void print(const T &val) // print any generic type, input is the address of a variable.
+
+// !@TOADD -- add to my templates mechanism.
+template <typename T>
+void print(const T &val) // print any generic type, input is the address of a variable.
 {
     std::string s = toString<T>(val); // generics in C++
     print(s);
@@ -54,4 +54,6 @@ int main()
     ll a = 15L, b = 123L;
     print<ll>(a);
     print<ll>(b);
+
+    print<decltype(&b)>(&b);
 }
