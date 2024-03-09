@@ -1,0 +1,6 @@
+clang++ -std=c++17 -o <X> <X>.cpp && ./<X>
+Repetitions
+
+1. clang++ -std=c++17 -o WeirdAlgorithm WeirdAlgorithm.cpp && ./WeirdAlgorithm
+2. clang++ -std=c++17 -o MissingNumber MissingNumber.cpp && ./MissingNumber
+3. clang++ -std=c++17 -o Repetitions Repetitions.cpp && ./Repetitions
