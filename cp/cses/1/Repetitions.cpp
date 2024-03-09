@@ -3,6 +3,16 @@
 
 using namespace std;
 
+namespace Template
+{
+#define ll long long
+
+    void print(ll x)
+    {
+        std::cout << x << "";
+    }
+}
+
 int main(int argc, char **argv)
 {
     string n;
