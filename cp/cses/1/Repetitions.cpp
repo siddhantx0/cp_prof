@@ -3,50 +3,46 @@
 
 using namespace std;
 
-namespace Template
-{
-#define ll long long
-
-    void print(ll x)
-    {
-        std::cout << x << "";
-    }
-}
-
 int main(int argc, char **argv)
 {
     string n;
     getline(cin, n);
+
     if (n.size() == 1)
     {
         cout << 1 << endl;
         return 0;
     }
 
-    map<char, ll> mp = {{'A', 0}, {'T', 0}, {'G', 0}, {'C', 0}};
-    char prev = n.at(0);
-    ll max = 1;
-    // p t
-    // A T T C G G G A - n.size() = 8
-    //
-    // 1 2 1 3 1
-    // 3
+    ll l[]{0, 0, 0, 0};
     ll temp = 1;
-    for (ll i = 1; i < n.size(); ++i)
+    for (int i = 1; i < n.size(); ++i)
     {
-        char curr = n.at(i);
-        if (curr == prev)
-        {
+        if (n.at(i) == n.at(i - 1))
             temp += 1;
-        }
         else
         {
-            mp[prev] = std::max(mp[prev], temp);
+            switch (n.at(i - 1))
+            {
+            case 'A':
+                l[0] = std::max(l[0], temp);
+                break;
+            case 'T':
+                l[1] = std::max(l[1], temp);
+                break;
+            case 'G':
+                l[2] = std::max(l[2], temp);
+                break;
+            case 'C':
+                l[3] = std::max(l[3], temp);
+                break;
+            default:
+                break;
+            }
             temp = 1;
         }
-        max = std::max(mp[prev], max);
     }
 
-    cout << max << "\n";
+    cout << std::max(*std::max_element(l, l + sizeof(l) / sizeof(l[0])), temp) << endl;
     return 0;
 };
