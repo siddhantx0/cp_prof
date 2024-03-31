@@ -1,5 +1,5 @@
-// https://codeforces.com/contest/1948/problem/B
-// trick was getting the correct digit
+//  https://codeforces.com/contest/1948/problem/C
+// @TODO: not finished yet
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
